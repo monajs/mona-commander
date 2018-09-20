@@ -1,11 +1,7 @@
 # Commander
 
-[![NPM version][npm-image]][npm-url]
-[![Build status][travis-image]][travis-url]
-[![Test coverage][codecov-image]][codecov-url]
-[![Dependency Status][david-image]][david-url]
-[![License][license-image]][license-url]
-[![Downloads][downloads-image]][downloads-url]
+[![npm](https://img.shields.io/npm/v/@monajs/commander.svg?style=flat-square)](https://www.npmjs.com/package/@monajs/commander) 
+[![npm](https://img.shields.io/npm/dt/@monajs/commander.svg?style=flat-square)](https://www.npmjs.com/package/@monajs/commander)
 
 ✨✨ 一个简单的命令行底层工具！！
 
