@@ -1,26 +1,29 @@
 {
-  "name": "mona-commander",
-  "version": "0.0.1",
-  "description": "Mona系列 - 命令行底层服务",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/monajs/mona-commander.git"
-  },
-  "keywords": [
-    "mona",
-    "monajs",
-    "commander",
-    "commander.js",
-    "commanderjs"
-  ],
-  "author": "yangxi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/monajs/mona-commander/issues"
-  },
-  "homepage": "https://github.com/monajs/mona-commander#readme"
+    "name": "mona-commander",
+    "version": "0.0.1",
+    "description": "Mona系列 - 命令行底层服务",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/monajs/mona-commander.git"
+    },
+    "bin": {
+        "co": "./examples/index.js"
+    },
+    "keywords": [
+        "mona",
+        "monajs",
+        "commander",
+        "commander.js",
+        "commanderjs"
+    ],
+    "author": "yangxi",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/monajs/mona-commander/issues"
+    },
+    "homepage": "https://github.com/monajs/mona-commander#readme"
 }
