@@ -3,35 +3,46 @@
  */
 
 const Util = require('util')
-const EventEmitter = require('events').EventEmitter
 const path = require('path')
 const spawn = require('child_process').spawn
 
-Util.inherits(Command, EventEmitter)
+exports = module.exports = commander
 
-exports = module.exports = new Command()
-
-function Command () {
-    this._version = null
-    this._commands = []
+function matchLine (str) {
+    return str.indexOf('-') === 0 && str.indexOf('--') === -1
 }
 
-Command.prototype.version = function (str, flags) {
-    if (arguments.length === 0) throw new Error('版本标示不能为空！')
-    this._version = str
-    flags = flags || '-v, --version'
-    this._commands.push({
-        'version': { flags: flags }
-    })
+function parseLineArgv (str) {
+    str = str.splice(1)
+    let strList = str.split('')
 }
 
-Command.prototype.command = function (name, options) {
-    this._commands.push({
-        [name]: { name, options }
+function matchDoubleLine (str) {
+    return str.indexOf('--') === 0
+}
+
+function parseArgs () {
+    let argvs = process.argv.splice(2)
+    let config = {
+        _: []
+    }
+    let deleteIndex = []
+    argvs.forEach(function (v, i) {
+        if (matchLine(v)) {
+        } else if (matchDoubleLine()) {
+        
+        }
     })
+    console.log(config)
+}
+
+function commander (cmds) {
+    let argvs = process.argv.splice(2)
     
-    // console.log(path.resolve(__dirname, options.path))
-    spawn(process.execPath, options.module)
-    process.exit(0)
+    const options = cmds.filter(function (v) {
+        return v.name === argvs[0]
+    })
+    options[0].module.handler()
 }
+
 

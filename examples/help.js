@@ -1,1 +1,3 @@
-console.log(1)
+exports.handler = function () {
+    console.log(1)
+}
