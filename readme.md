@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@monajs/commander.svg?style=flat-square)](https://www.npmjs.com/package/@monajs/commander) 
 [![npm](https://img.shields.io/npm/dt/@monajs/commander.svg?style=flat-square)](https://www.npmjs.com/package/@monajs/commander)
+[![NPM Downloads](https://img.shields.io/npm/dm/@monajs/commander.svg?style=flat)](https://npmcharts.com/compare/@monajs/commander?minimal=true)
 
 ✨✨ 一个简单的命令行底层工具！！
 
