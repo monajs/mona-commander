@@ -58,18 +58,18 @@ exports.handler = argvs => {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | :-- |
-| version | 版本号 | `String` | null |
-| desc | 命令描述（见下方注释） | `String` | '' |
-| cmds | 命令集合 | `Array` | [] |
+| version | 版本号 | `String` | `null` |
+| desc | 命令描述（见下方注释） | `String` | `null` |
+| cmds | 命令集合 | `Array` | `[]` |
 
 
 #### cmdItem 属性介绍
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | :-- |
-| command | 命令执行模块名称 | `String` | null |
-| module | 命令执行模块（见下方注释） | `String` | '404' |
-| aliases | 命令执行模块别名 | `String` | null |
-| desc | 命令执行模块介绍 | `String` | null |
+| command | 命令执行模块名称 | `String` | `null` |
+| module | 命令执行模块（见下方注释） | `String` | `404` |
+| aliases | 命令执行模块别名 | `String` | `null` |
+| desc | 命令执行模块介绍 | `String` | `null` |
 
 * 注：每一个命令执行模块都需要暴露出一个 handler 方法作为命令的入口
