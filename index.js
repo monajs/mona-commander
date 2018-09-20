@@ -2,9 +2,6 @@
  * Module dependencies.
  */
 
-const Util = require('util')
-const path = require('path')
-
 exports = module.exports = commander
 
 /**
@@ -26,7 +23,6 @@ function isSingleLine (str) {
  * @param {String} str
  */
 
-
 function isDoubleLine (str) {
     if (str === undefined) {
         return false
@@ -40,7 +36,11 @@ function isDoubleLine (str) {
 
 function parseArgs () {
     let argvs = process.argv.splice(2)
+    
+    // 存储匹配'-'开头的参数
     let singleLineArgs = []
+    
+    // 存储匹配'--'开头的参数
     let doubleLineArgs = []
     let fullArgs = []
     argvs.forEach(function (v, i) {
@@ -112,8 +112,46 @@ function parseArgs () {
     return config
 }
 
-function help () {
-    process.stdout.write('123')
+/**
+ * 字符串前统一填补空格
+ *
+ * @param {String} str
+ */
+
+function pad (str) {
+    const len = 18 - str.length
+    return str + Array(len).join(' ')
+}
+
+/**
+ * help
+ *
+ * @param {Array} cmds
+ */
+
+function help (cmds) {
+    let commands = [
+        '',
+        'Commands:',
+        ''
+    ]
+    
+    cmds.forEach(function (v) {
+        let item = pad(v.command + (v.aliases ? '|' + v.aliases : '')) + v.desc
+        commands.push(item.replace(/^/gm, '    '))
+    })
+    
+    const options = [
+        '',
+        'Options:',
+        '',
+        (pad('-h, --help') + 'output usage information').replace(/^/gm, '    '),
+        (pad('-v, --version') + 'output the version number').replace(/^/gm, '    '),
+        '',
+        ''
+    ]
+    
+    process.stdout.write(commands.concat(options).join('\n'))
     process.exit()
 }
 
@@ -125,20 +163,19 @@ function help () {
 
 function commander (cmds) {
     const argvs = parseArgs()
-    if (argvs.v || argvs.version) {
-        process.stdout.write('0.0.1')
-        process.exit()
-    } else {
-        if (argvs._.length === 0) {
-            help()
+    if (argvs._.length === 0) {
+        if (argvs.v || argvs.version) {
+            process.stdout.write(require('./package.json').version + '\n' || 'unknow\n')
+            process.exit()
         } else {
-            const options = cmds.filter(function (v) {
-                return v.name === argvs._[0]
-            })
-            options[0].module.handler()
+            help(cmds)
         }
+    } else {
+        const options = cmds.filter(function (v) {
+            return v.command === argvs._[0] || v.aliases === argvs._[0]
+        })
+        options[0].module.handler(argvs)
     }
-    
 }
 
 
