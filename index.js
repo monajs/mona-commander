@@ -126,10 +126,11 @@ function pad (str) {
 /**
  * help
  *
- * @param {Array} cmds
+ * @param {Object} options
  */
 
-function help (cmds) {
+function help (options) {
+    const { cmds, desc } = options
     let commands = [
         '',
         'Commands:',
@@ -141,7 +142,7 @@ function help (cmds) {
         commands.push(item.replace(/^/gm, '    '))
     })
     
-    const options = [
+    const optionsList = [
         '',
         'Options:',
         '',
@@ -151,30 +152,31 @@ function help (cmds) {
         ''
     ]
     
-    process.stdout.write(commands.concat(options).join('\n'))
+    process.stdout.write(['', desc].concat(commands, optionsList).join('\n'))
     process.exit()
 }
 
 /**
  * 入口方法（主方法）
  *
- * @param {Array} cmds
+ * @param {Object} options
  */
 
-function commander (cmds) {
+function commander (options) {
+    const { cmds, version } = options
     const argvs = parseArgs()
     if (argvs._.length === 0) {
         if (argvs.v || argvs.version) {
-            process.stdout.write(require('./package.json').version + '\n' || 'unknow\n')
+            process.stdout.write(version + '\n' || 'unknow\n')
             process.exit()
         } else {
-            help(cmds)
+            help(options)
         }
     } else {
-        const options = cmds.filter(function (v) {
+        const cmd = cmds.filter(function (v) {
             return v.command === argvs._[0] || v.aliases === argvs._[0]
-        })
-        options[0].module.handler(argvs)
+        })[0]
+        cmd.module.handler(argvs)
     }
 }
 

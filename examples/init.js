@@ -1,3 +1,3 @@
-exports.handler = function (argvs) {
+exports.handler = argvs => {
     console.log(argvs)
 }
