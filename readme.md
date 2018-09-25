@@ -4,11 +4,7 @@
 [![npm](https://img.shields.io/npm/dt/@monajs/commander.svg?style=flat-square)](https://www.npmjs.com/package/@monajs/commander)
 [![Install Size](https://packagephobia.now.sh/badge?p=@monajs/commander)](https://packagephobia.now.sh/result?p=@monajs/commander)
 
-✨✨ 一个简单的命令行底层工具！！
-
-## 联系我
-> 微信：599321378
-
+✨✨ 一个简单的命令行底层工具！！！
 
 ```bash
 $ npm i --save @monajs/commander
@@ -76,4 +72,9 @@ exports.handler = argvs => {
 | aliases | 命令执行模块别名 | `String` | `null` |
 | desc | 命令执行模块介绍 | `String` | `null` |
 
-* 注：每一个命令执行模块都需要暴露出一个 handler 方法作为命令的入口
+* 注：每一个命令执行模块都需要暴露出一个 `handler` 方法作为命令的入口
+
+
+### 联系我
+> 微信：599321378
+
