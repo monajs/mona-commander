@@ -11,10 +11,10 @@ exports = module.exports = commander
  */
 
 function isSingleLine (str) {
-    if (str === undefined) {
+    if (!str) {
         return false
     }
-    return str.indexOf('-') === 0 && str.indexOf('--') === -1
+    return str.indexOf('-') === 0 && !isDoubleLine(str)
 }
 
 /**
@@ -24,7 +24,7 @@ function isSingleLine (str) {
  */
 
 function isDoubleLine (str) {
-    if (str === undefined) {
+    if (!str) {
         return false
     }
     return str.indexOf('--') === 0
