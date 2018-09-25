@@ -6,10 +6,6 @@
 
 ✨✨ 一个简单的命令行底层工具！！！
 
-## 联系我
-> 微信：599321378
-
-
 ```bash
 $ npm i --save @monajs/commander
 ```
@@ -77,3 +73,8 @@ exports.handler = argvs => {
 | desc | 命令执行模块介绍 | `String` | `null` |
 
 * 注：每一个命令执行模块都需要暴露出一个 `handler` 方法作为命令的入口
+
+
+### 联系我
+> 微信：599321378
+
