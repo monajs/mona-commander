@@ -76,4 +76,4 @@ exports.handler = argvs => {
 | aliases | 命令执行模块别名 | `String` | `null` |
 | desc | 命令执行模块介绍 | `String` | `null` |
 
-* 注：每一个命令执行模块都需要暴露出一个 handler 方法作为命令的入口
+* 注：每一个命令执行模块都需要暴露出一个 `handler` 方法作为命令的入口
