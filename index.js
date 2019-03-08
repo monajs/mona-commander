@@ -176,6 +176,10 @@ function commander (options) {
         const cmd = cmds.filter(function (v) {
             return v.command === argvs._[0] || v.aliases === argvs._[0]
         })[0]
+        
+        if (!cmd) {
+            help(options)
+        }
         cmd.module.handler(argvs)
     }
 }

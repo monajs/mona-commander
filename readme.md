@@ -28,7 +28,7 @@ program(options)
 ```js
 #!/usr/bin/env node
 
-const program = require('../')
+const program = require('@monajs/commander')
 const init = require('./init.js')
 
 const cmds = [{
